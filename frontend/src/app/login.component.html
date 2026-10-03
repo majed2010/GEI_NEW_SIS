@@ -1,0 +1,15 @@
+<div class="login-page">
+  <header class="login-header"><a href="https://gei.edu.eg/index.php/ar/" class="brand"><img src="assets/gei-logo.jpg" alt="معهد الجيزة العالي للهندسة والتكنولوجيا"><span><strong>معهد الجيزة العالي</strong><small>للهندسة والتكنولوجيا</small></span></a><span class="header-label">نظام معلومات الطلاب <span class="separator">/</span> <b dir="ltr">GEI SIS</b></span><a class="website-link" href="https://gei.edu.eg/index.php/ar/">الموقع الرسمي <sis-icon name="globe" /></a></header>
+  <main class="login-main">
+    <section class="login-story">
+      <div class="blueprint" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="blueprint-square"></div><div class="blueprint-cross">+</div><span class="blueprint-label">GEI / ACADEMIC OPERATIONS</span></div>
+      <div class="story-copy"><span class="eyebrow light"><i></i> بوابة العاملين بالمعهد</span><h1>منظومة واحدة.<br>تجربة أكاديمية <em>متكاملة.</em></h1><p>مساحة عمل تجمع القبول والتسجيل والإدارة الأكاديمية،<br class="desktop-only"> لتمنحك وقتاً أكبر لما يهمّ حقاً.</p><div class="story-line"></div><div class="story-features"><span><sis-icon name="people" /> القبول والتسجيل</span><span><sis-icon name="book" /> المقررات والمناهج</span><span><sis-icon name="chart" /> المتابعة والتقارير</span></div></div>
+      <div class="story-footer"><span>نصنع المعرفة. نبني المستقبل.</span><span dir="ltr">GIZA ENGINEERING INSTITUTE</span></div>
+    </section>
+    <section class="login-form-wrap"><div class="login-form"><span class="welcome-icon"><sis-icon name="cap" /></span><span class="eyebrow">مرحباً بك في GEI SIS</span><h2>بداية يومك، من هنا.</h2><p class="muted login-description">سجّل الدخول بحسابك المؤسسي للوصول إلى<br>مساحة عملك وإدارة مهامك اليومية.</p><div class="staff-label"><span></span> الدخول الموحّد للعاملين <span></span></div><button class="microsoft-button" (click)="auth.login()" [disabled]="auth.busy()"><span class="microsoft-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{{ auth.busy() ? 'جارٍ الانتقال إلى Microsoft...' : 'تسجيل الدخول باستخدام Microsoft 365' }}<sis-icon name="arrow" /></button><p class="account-hint">استخدم حساب Microsoft 365 الخاص بالمعهد</p>
+      @if (auth.error()) { <div class="inline-message" role="alert">{{ auth.error() }}</div> }
+      <div class="secure-note"><sis-icon name="shield" /><div><strong>دخول آمن بحساب واحد</strong><p>تتم المصادقة من خلال Microsoft، وفقاً لسياسات<br>الأمان والصلاحيات المعتمدة بالمعهد.</p></div></div>
+      @if (auth.previewEnabled()) { <div class="preview-entry"><span class="preview-label">نسخة استعراضية</span><p>تعرّف على مساحة العمل قبل تفعيل حسابك.</p><a routerLink="/preview">استكشف النظام <sis-icon name="arrow" /></a></div> }
+      <div class="login-help">تحتاج إلى مساعدة؟ <a href="mailto:info@gei.edu.eg?subject=GEI%20SIS%20Access">تواصل مع إدارة المعهد <sis-icon name="help" /></a></div></div></section>
+  </main><footer class="login-footer"><span>© ٢٠٢٦ معهد الجيزة العالي للهندسة والتكنولوجيا. جميع الحقوق محفوظة.</span><span><span class="status-dot"></span> بوابة مخصصة للعاملين بالمعهد</span></footer>
+</div>

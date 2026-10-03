@@ -1,0 +1,8 @@
+{
+  "tenantId": "4f250331-fa28-4f3a-bc05-6f4a9ab2e6dd",
+  "clientId": "93141cb7-57b1-408d-a1df-49fc187dfb13",
+  "apiScope": "api://78f9de93-d724-4d8b-8a41-f5ddd64b65b4/access_as_user",
+  "redirectUri": "http://localhost:4200/",
+  "apiBaseUrl": "/api",
+  "enablePreview": true
+}

@@ -1,0 +1,402 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="layout1.master.cs" Inherits="layout" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>.:: TEI ::.</title>
+    <%--<style type="text/css">
+        ul
+        {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+        }
+        ul li
+        {
+            font: bold 11px/16px arial, helvetica, sans-serif;
+            height: 100%;
+            background: #ff8b8e;
+            border-bottom: 1px solid #fff;
+            position: relative;
+            float: left;
+            width: 100%;
+        }
+        ul li ul li
+        {
+            background: #ffcf8b;
+        }
+        ul li a
+        {
+            display: block;
+            padding: 2px 3px;
+        }
+        ul li a:hover
+        {
+            color: #a00;
+            background: #ffd3d4;
+            border-right: 1px solid #fff;
+            border-left: 1px solid #fff;
+        }
+        ul li ul li a:hover
+        {
+            background: #ffedd3;
+            border-left: 1px solid #fff;
+        }
+        ul ul
+        {
+            position: absolute;
+            top: 0;
+            display: none;
+        }
+        ul li:hover ul
+        {
+            display: block;
+            left: 200px;
+        }
+    </style>--%>
+    <style type="text/css">
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        body
+        {
+            background: url(images/back.jpg);
+        }
+        #menu
+        {
+            top: 30px;
+            margin: 0 auto;
+            width: 80%;
+        }
+        #copyright
+        {
+            margin: 100px auto;
+            width: 80%;
+            font: 12px 'Trebuchet MS';
+            color: #bbb;
+            text-indent: 20px;
+            padding: 40px 0 0 0;
+        }
+        #copyright a
+        {
+            color: #bbb;
+        }
+        #copyright a:hover
+        {
+            color: #fff;
+        }
+    </style>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+
+    <script src="js/jquery.cookie.js" type="text/javascript"></script>
+
+    <script src="js/menu.js" type="text/javascript"></script>
+
+    <%--    <link href="style/superfish.css" rel="stylesheet" type="text/css" />--%>
+
+    <script src="js/hoverIntent.js" type="text/javascript"></script>
+
+    <%-- <script src="js/superfish.js" type="text/javascript"></script>
+--%>
+
+    <script src="js/vallenato.js" type="text/javascript"></script>
+
+    <link href="style/menu.css" rel="stylesheet" type="text/css" />
+    <link href="style/YahooGridView.css" rel="stylesheet" type="text/css" />
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+    <link href="style/tabs.css" rel="stylesheet" type="text/css" />
+    <link href="style/calendar.css" rel="stylesheet" type="text/css" />
+    <link href="style/vallenato.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/superfish.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/superfish-rtl.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/superfish-vertical.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/superfish-vertical-rtl.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/superfish-navbar.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/superfish-navbar-rtl.css" media="screen" />
+
+    <script type="text/javascript" src="js/hoverIntent.js"></script>
+
+    <script type="text/javascript" src="js/superfish.js"></script>
+
+    <script type="text/javascript">
+
+        // initialise plugins
+        jQuery(function() {
+            $('ul.sf-menu').superfish();
+
+        });
+
+    </script>
+
+    <%--   <script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
+
+    <link href="style/prettyPhoto.css" rel="stylesheet" type="text/css" />--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="TeiScriptManager1" runat="server" AsyncPostBackTimeout="600">
+    </asp:ScriptManager>
+    <asp:UpdatePanel runat="server" ID="up1" UpdateMode="Conditional">
+        <ContentTemplate>
+            <iframe id="KeepAliveFrame" frameborder="0" width="0" height="0" runat="server">
+            </iframe>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:HiddenField ID="userId" runat="server" />
+    <div id="header-wrapper">
+        <div id="header">
+            <div id="logo" align="center">
+                <div>
+                    <img src="images/logo_wight.jpg" />
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding-right: 150px">
+        <div class="rtl">
+            <%--<ul class="sf-menu">
+                <li class="current"><a href="#a">المحتويات الاساسية</a>
+                    <ul>
+                        <li><a href="users.aspx">المستخدمين</a></li>
+                        <li><a href="departments.aspx">أقسام المعهد</a></li>
+                        <li><a href="students.aspx">بيانات الطلاب</a></li>
+                        <li><a href="activities.aspx">الأنشطة</a></li>
+                        <li><a href="hoppies.aspx">الهوايات</a></li>
+                        <li><a href="certificates.aspx">الشهادات</a></li>
+                        <li><a href="languages.aspx">اللغات</a></li>
+                        <li><a href="years.aspx">السنوات الدراسية</a></li>
+                        <li><a href="semesters.aspx">الفصول الدراسية</a></li>
+                        <li><a href="medicalStatus.aspx">الحالات الطبية</a></li>
+                        <li><a href="locations.aspx">دول-مدن-مناطق</a></li>
+                        <li><a href="nationalities.aspx">الجنسيات</a></li>
+                        <li><a href="schools.aspx">المدارس</a></li>
+                        <li><a href="armyStatus.aspx">حالات التجنيد</a></li>
+                        <li><a href="acceptanceTypes.aspx">حالات القبول</a></li>
+                        <li><a href="levels.aspx">المستويات</a></li>
+                        <li><a href="courses.aspx">المواد الدراسية</a></li>
+                    </ul>
+                </li>
+               <%-- <li class="current"><a href="#a">اللوائح</a>
+                    <ul>
+                        <li><a href="Categories.aspx">المجموعات</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">تسجيل الدرجات والمواد</a>
+                    <ul>
+                        <li><a href="advising.aspx">تسجيل المواد</a></li>
+                        <li><a href="grading.aspx">تسجيل الدرجات</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">تقارير التسجيل والدرجات</a>
+                    <ul>
+                        <li><a href="advisingReport.aspx">تقرير الطلبة المسجلين</a></li>
+                        <li><a href="advisingReportWithGPA.aspx"> تقرير الطلبة المسجلين اقل 1.7</a></li>
+                        <li><a href="failedReport.aspx">تقرير الطلبة الراسبين 1</a></li>
+                        <li><a href="transcriptMidReport.aspx">تقرير نتيجة الطلاب</a></li>
+                        <li><a href="gradingReport.aspx">تقرير درجات لمادة</a></li>
+                        <li><a href="gradingReportWithoutGrades.aspx">تقرير درجات لمادة فارغ</a></li>
+                        <li><a href="gradingReporforperformances.aspx">تقرير أعمال السنة فارغ</a></li>
+                        <li><a href="gradingReportFilledPerformance.aspx">تقرير درجات أعمال السنة</a></li>
+                        <li><a href="GetStudentOldByLevel_Report.aspx">تقرير مواقف الطلاب بالمستوى</a></li>
+                        <li><a href="CoursesStatistics.aspx">تقرير احصائي للمواد في فصل دراسي</a></li>
+                        <li><a href="CoursesStatistics_Grades.aspx">تقرير احصائي للمواد في فصل دراسي- تقديرات</a></li>
+                        <li><a href="CoursesStatistics_Grades_All.aspx">تقرير احصائي للمواد في جميع الفصول الدراسية- تقديرات</a></li>
+                        <li><a href="CoursesStatistics_Charts.aspx">تقرير احصائي للمواد في فصل دراسي- رسم بياني</a></li>
+                        <li><a href="StudentNotRegistered_Report.aspx">تقرير الطلاب غير المسجلين</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">شئون الطلاب</a>
+                    <ul>
+                        <li><a href="studentSearch.aspx">بحث الطلاب</a></li>
+                        <li><a href="changeDept.aspx">تغيير قسم الطالب</a></li>
+                        <li><a href="StudentsInformationForCards.aspx">استعلام المستوى</a></li>
+                        <li><a href="GetStudentsPerDepLevelYear_Report.aspx">المستوى والسنة والقسم</a></li>
+                        <li><a href="GetStudentsPerDepCertificate_Report.aspx">الشهادة - القسم</a></li>
+                        <li><a href="GetStudentsPerDepBirthDate_Report.aspx">القسم وتاريخ الميلاد</a></li>
+                        <li><a href="GetStudentLevelHobby_Report.aspx">هوايات الطلاب </a></li>
+                        <li><a href="GetStudentLevelActivity_Report.aspx">نشاطات الطلاب </a></li>
+                        <li><a href="StudentsmilitaryData.aspx">بيانات التجنيد</a></li>
+                         <li><a href="GetStudentsHours.aspx">تقرير الساعات للطلبة</a></li>
+                         <li><a href="StudentsAttendance.aspx">تقرير الحضور للطلبة</a></li>
+                         <li><a href="GetOpenCoursesBySemester.aspx">تقرير المواد المفتوحة </a></li>
+                          <li><a href="GETDifferentsStudents_Between_Two_Terms.aspx">تقرير الفرق بين فصلين </a></li>
+                        <li><a href="GETEqualStudents_Between_Two_Terms.aspx">تقرير تطابق بين فصلين </a></li>
+                        <li><a href="Exceeds_Six_Semesters.aspx">تقرير الطلاب المستنفذين للمعدل التراكم </a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="#">الايقاف والاعتذار</a>
+                    <ul>
+                        <li><a href="states.aspx">تعريف الحالات </a></li>
+                        <li><a href="execuses.aspx">تعيين حالة طالب</a></li>
+                    </ul>
+                </li>
+                   <li><a href="#">شئون الخريجين</a>
+                    <ul>
+                        <li><a href="GraduateMidReport.aspx">تقرير نتيجة الخريجين</a></li>
+                        <li><a href="TabeedaMidReport.aspx">تقرير تبيضه الخريجين</a></li>
+                         <li><a href="GraduateCertificateMidReport.aspx">تقرير شهادات بالقسم</a></li>
+                         <li><a href="GraduateCertificateByStudentCodeMidReport.aspx"> شهادة طالب </a></li>
+                         <li><a href="Graduate_Student_Statment_MidReport.aspx"> بيان تقديرات بالقسم </a></li>
+                          <li><a href="Graduate_Student_Statment_ByStudentCode_MidReport.aspx"> بيان تقديرات لطالب </a></li>
+                        <li><a href="NekaabaGraduate MidReport.aspx"> بيان بالخريجين للنقابة </a></li>
+                         
+                    </ul>
+                </li>
+                <li><a href="#">الـحـجـب</a>
+                    <ul>
+                        <li><a href="BlockingTypes.aspx">تعريف حالات الحجب </a></li>
+                        <li><a href="Blocking.aspx">تعيين حجب طالب</a></li>
+                    </ul>
+                </li>
+                <li class="current"><a href="#a">شئون الموظفين</a>
+                    <ul>
+                        <li><a href="http://geiegy.com/teiAdmin/HRManagement/viewEmployee.aspx">الموظفين</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Emp_Titles_form.aspx">المسمى الوظيفي</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/HR_departments_Form.aspx">الاقسام</a></li>
+                    </ul>
+                </li>
+                <li class="current"><a href="#a">المتابعة</a>
+                    <ul>
+                        <li><a href="http://geiegy.com/teiAdmin/Rooms_lookup.aspx">الغرف</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Assign_Students_Room.aspx">تعيين الغرف للطلاب</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Students_Rooms_attend_schedules.aspx">حضور الطلاب
+                            للغرف</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Visitors.aspx">Visitors</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Assign_Visitors_To_students.aspx">زوار الطلاب</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Visiting_schdeules.aspx">جدول الزيارات</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/student_supervision.aspx">الاشراف على الطلاب</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/View_student_Problems.aspx">مشاكل الطلاب</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Doctors_Followup.aspx">متابعة الاساتذة</a></li>
+                        <li><a href="http://geiegy.com/teiAdmin/Doctors_Followup_Hours.aspx">متابعة ساعات الاساتذة</a></li>
+                    </ul>--%>
+            </ul>
+        </div>
+    </div>
+    <div style="clear: both">
+    </div>
+    <div id="wrapper">
+        <!-- end #header -->
+        <div id="page">
+            <div align="right">
+               <%-- <asp:Label ID="userName" runat="server" Text="مرحبا " Style="font-weight: bold; color: Blue;
+                    direction: rtl"></asp:Label>
+                <br />
+                <br />
+                <asp:LinkButton ID="logout" runat="server" OnClick="btnLogout_Click">تسجيل الخروج</asp:LinkButton>
+                <br />--%>
+            </div>
+            <div id="page-bgtop">
+                <div id="page-bgbtm">
+                    <%--<div id="sidebar">
+                        <ul>
+                            <li>
+                                <h2>
+                                    محتويات النظام</h2>
+                                <ul>
+                                    <li><a href="users.aspx">المستخدمين</a></li>
+                                    <li><a href="departments.aspx">أقسام المعهد</a></li>
+                                    <li><a href="students.aspx">بيانات الطلاب</a></li>
+                                    <li><a href="activities.aspx">الأنشطة</a></li>
+                                    <li><a href="hoppies.aspx">الهوايات</a></li>
+                                    <li><a href="certificates.aspx">الشهادات</a></li>
+                                    <li><a href="languages.aspx">اللغات</a></li>
+                                    <li><a href="years.aspx">السنوات الدراسية</a></li>
+                                    <li><a href="semesters.aspx">الفصول الدراسية</a></li>
+                                    <li><a href="medicalStatus.aspx">الحالات الطبية</a></li>
+                                    <li><a href="locations.aspx">دول-مدن-مناطق</a></li>
+                                    <li><a href="nationalities.aspx">الجنسيات</a></li>
+                                    <li><a href="schools.aspx">المدارس</a></li>
+                                    <li><a href="armyStatus.aspx">حالات التجنيد</a></li>
+                                    <li><a href="acceptanceTypes.aspx">حالات القبول</a></li>
+                                    <li><a href="levels.aspx">المستويات</a></li>
+                                    <li><a href="courses.aspx">المواد الدراسية</a></li>
+                                    <li><a href="advising.aspx">تسجيل المواد</a></li>
+                                    <li><a href="grading.aspx">تسجيل الدرجات</a></li>
+                                    <li><a href="advisingReport.aspx">تقرير الطلبة المسجلين</a></li>
+                                    <li><a href="failedReport.aspx">تقرير الطلبة الراسبين 1</a></li>
+                                    <li><a href="states.aspx">تعريف الحالات </a></li>
+                                    <li><a href="execuses.aspx">تعيين حالة طالب</a></li>
+                                    <li><a href="transcriptMidReport.aspx">تقرير نتيجة الطلاب</a></li>
+                                    <li><a href="gradingReport.aspx">تقرير درجات لمادة</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>--%>
+                    <!-- end #sidebar -->
+                    <div id="content">
+                        <div class="post">
+                            <h2 class="title">
+                                <a>
+                                    <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </a>
+                            </h2>
+                            <div style="clear: both;">
+                                &nbsp;</div>
+                            <div class="entry">
+                                <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                        <div style="clear: both;">
+                            &nbsp;</div>
+                    </div>
+                    <!-- end #content -->
+                    <div style="clear: both;">
+                        &nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <!-- end #page -->
+    </div>
+    <div id="footer">
+        <p>
+            Copyright (c) gei.edu.eg. All rights reserved. Design by <a href="HTTP://WWW.Gei.edu.eg/">
+              GEI Institute </a>.</p>
+    </div>
+    <!-- end #footer -->
+    </form>
+    <%--  <script type="text/javascript" charset="utf-8">
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequest);
+        function EndRequest(sender, args) {
+            $(document).ready(function() {
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    animation_speed: 'fast', /* fast/slow/normal */
+                    autoplay_slideshow: false,
+                    opacity: 0.80, /* Value between 0 and 1 */
+                    show_title: true, /* true/false */
+                    allow_resize: false, /* Resize the photos bigger than viewport. true/false */
+                    default_width: 500,
+                    default_height: 344,
+                    theme: 'facebook', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+                    hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                    overlay_gallery: false
+                });
+            });
+        }
+        $(document).ready(function() {
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                animation_speed: 'fast', /* fast/slow/normal */
+                autoplay_slideshow: false,
+                opacity: 0.80, /* Value between 0 and 1 */
+                show_title: true, /* true/false */
+                allow_resize: false, /* Resize the photos bigger than viewport. true/false */
+                default_width: 500,
+                default_height: 344,
+                theme: 'facebook', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+                hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                overlay_gallery: false
+            });
+        });
+    </script>
+--%>
+</body>
+</html>

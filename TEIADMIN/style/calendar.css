@@ -1,0 +1,157 @@
+
+.Calendar .ajax__calendar_container {border:1px solid #646464;background-color:#ffffff;color:#000000;}
+
+.Calendar .ajax__calendar_footer {border-top:1px solid #f5f5f5;}
+.Calendar .ajax__calendar_dayname {border-bottom:1px solid #f5f5f5;}
+.Calendar .ajax__calendar_day {border:1px solid #ffffff;}
+.Calendar .ajax__calendar_month {border:1px solid #ffffff;}
+.Calendar .ajax__calendar_year {border:1px solid #ffffff;}
+
+.Calendar .ajax__calendar_active .ajax__calendar_day {background-color:#e1e1e1;border-color:#06c;color:#06c;}
+.Calendar .ajax__calendar_active .ajax__calendar_month {background-color:#e1e1e1;border-color:#06c;color:#06c;}
+.Calendar .ajax__calendar_active .ajax__calendar_year {background-color:#e1e1e1;border-color:#06c;color:#06c;}
+
+.Calendar .ajax__calendar_other .ajax__calendar_day {background-color:#ffffff;border-color:#ffffff;color:#646464;}
+.Calendar .ajax__calendar_other .ajax__calendar_year {background-color:#ffffff;border-color:#ffffff;color:#646464;}
+
+.Calendar .ajax__calendar_hover .ajax__calendar_day {background-color:#e1e1e1;border-color:#d2d2d2;color:#06c;}
+.Calendar .ajax__calendar_hover .ajax__calendar_month {background-color:#e1e1e1;border-color:#d2d2d2;color:#06c;}
+.Calendar .ajax__calendar_hover .ajax__calendar_year {background-color:#e1e1e1;border-color:#d2d2d2;color:#06c;}
+
+.Calendar .ajax__calendar_hover .ajax__calendar_title {color:#06c;}
+.Calendar .ajax__calendar_hover .ajax__calendar_today {color:#06c;}
+
+.CALcpYearNavigation, 
+.CALcpMonthNavigation
+{
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #4A91C3;
+	text-align: center;
+	text-decoration: none;
+	padding:0px;
+}
+
+A.CALcpMonthNavigation
+{
+	font-size: 11px;
+	font-family: Verdana;
+	color: #FFFFFF;
+}
+A.CALcpMonthNavigation:hover
+{
+	color: #FFFFFF;
+}
+
+.CALcpDayColumnHeader, 
+.CALcpYearNavigation, 
+.CALcpMonthNavigation, 
+.CALcpCurrentMonthDate, 
+.CALcpCurrentMonthDateDisabled, 
+.CALcpOtherMonthDate, 
+.CALcpOtherMonthDateDisabled, 
+.CALcpCurrentDate, 
+.CALcpCurrentDateDisabled, 
+.CALcpTodayText, 
+.CALcpTodayTextDisabled, 
+.CALcpText
+{
+	font-size: 10px;
+	font-family: Verdana;
+}
+ 
+TD.CALcpDayColumnHeader
+{
+	border-bottom: #4A91C3 1px solid;
+	text-align: right;
+	padding:0px;
+}
+	
+.CALcpCurrentMonthDate, 
+.CALcpOtherMonthDate, 
+.CALcpCurrentDate
+{
+	text-align: right;
+	text-decoration: none;
+}
+
+A.CALcpCurrentDate:hover
+{
+	color: #FFFFFF;
+}
+ 
+.CALcpCurrentMonthDateDisabled, 
+.CALcpOtherMonthDateDisabled, 
+.CALcpCurrentDateDisabled
+{
+	color: #d0d0d0;
+	text-align: right;
+	text-decoration: line-through;
+}
+ 
+.CALcpCurrentMonthDate
+{
+	font-weight: bold;
+	color: #06C;
+	padding:0px;
+}
+
+.CALcpCurrentDate
+{
+	font-weight: bold;
+	color: #ffffff;
+}
+		
+.CALcpOtherMonthDate
+{
+	color: #808080;
+}
+		
+TD.CALcpCurrentDate
+{
+	border: solid thin #72A545;
+	color: #ffffff;
+	background-color: #4A91C3;
+}
+		
+TD.CALcpCurrentDateDisabled
+{
+	border: solid thin #ffaaaa;
+}
+		
+TD.CALcpTodayText, 
+TD.CALcpTodayTextDisabled
+{
+	border-top: #4A91C3 1px solid;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+A.CALcpTodayText
+{
+	height: 20px;
+}
+	
+SPAN.CALcpTodayTextDisabled
+{
+	height: 20px;
+}
+	
+A.CALcpTodayText
+{
+	font-weight: bold;
+	color: #72A545;
+}
+	
+SPAN.CALcpTodayTextDisabled
+{
+	color: #d0d0d0;
+}
+	
+.CALcpBorder
+{
+	border-right: 2px #606060 solid;
+	border-top: 2px #c0c0c0 solid;
+	border-left: 2px #c0c0c0 solid;
+	border-bottom: 2px #606060 solid;
+}

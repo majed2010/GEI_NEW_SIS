@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/Gei.Sis.Api/Gei.Sis.Api.csproj" />
+  </Folder>
+</Solution>

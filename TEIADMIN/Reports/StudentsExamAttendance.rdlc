@@ -1,0 +1,1040 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="db_connection">
+      <rd:DataSourceID>a98c83a1-792a-4753-9db3-e7756ed94f1a</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <ReportParameters>
+    <ReportParameter Name="Levels">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_0</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Course">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>0.5cm</RightMargin>
+  <LeftMargin>0.5cm</LeftMargin>
+  <PageHeader>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="textbox2">
+        <Top>0.95238cm</Top>
+        <Width>2.85715cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <Direction>RTL</Direction>
+          <Language>ar-EG</Language>
+        </Style>
+        <ZIndex>9</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>2.125in</Left>
+        <Height>0.63492cm</Height>
+        <Value>2025 / 2024</Value>
+      </Textbox>
+      <Textbox Name="textbox24">
+        <Top>2.22222cm</Top>
+        <Width>8.88889cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <Direction>RTL</Direction>
+        </Style>
+        <ZIndex>8</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>1.125in</Left>
+        <Value>=Parameters!Course.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox32">
+        <Top>2.22222cm</Top>
+        <Width>1.26984cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>7</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.625in</Left>
+        <Value>المادة</Value>
+      </Textbox>
+      <Textbox Name="textbox25">
+        <Top>1.5873cm</Top>
+        <Width>10.79365cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>6</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.375in</Left>
+        <Height>0.63492cm</Height>
+        <Value>=Parameters!Levels.Value</Value>
+      </Textbox>
+      <Textbox Name="textbox23">
+        <Top>1.5873cm</Top>
+        <Width>1.26984cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>5</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.625in</Left>
+        <Height>0.63492cm</Height>
+        <Value>امتحانات </Value>
+      </Textbox>
+      <Textbox Name="textbox8">
+        <Top>0.95238cm</Top>
+        <Width>4.76191cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>4</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>3.25in</Left>
+        <Height>0.63492cm</Height>
+        <Value>الفصل الدراسي  الثاني  </Value>
+      </Textbox>
+      <Textbox Name="textbox6">
+        <Top>0.34392cm</Top>
+        <Width>6.03175cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>3</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>5.4375in</Left>
+        <Height>0.25in</Height>
+        <Value>وزارة التعليم العالي </Value>
+      </Textbox>
+      <Image Name="image1">
+        <Sizing>Fit</Sizing>
+        <Width>3.1746cm</Width>
+        <MIMEType>image/jpeg</MIMEType>
+        <Source>Embedded</Source>
+        <Style />
+        <ZIndex>2</ZIndex>
+        <Left>0.31746cm</Left>
+        <Height>1.90476cm</Height>
+        <Value>giza</Value>
+      </Image>
+      <Textbox Name="textbox1">
+        <Top>0.31746cm</Top>
+        <Width>7.61905cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>1</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>2.125in</Left>
+        <Height>0.63492cm</Height>
+        <Value>كشف حضور وانصراف</Value>
+      </Textbox>
+      <Textbox Name="textbox3">
+        <rd:DefaultName>textbox3</rd:DefaultName>
+        <Top>1.11111cm</Top>
+        <Width>6.71958cm</Width>
+        <Style>
+          <Color>Maroon</Color>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>5.25in</Left>
+        <Height>0.25in</Height>
+        <Value>مـعـهـد الجيـزة العـــالي للـهندســـــة والتـكـــنولــــوجــيــا</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>1.125in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <Style>
+      <BorderWidth>
+        <Default>2pt</Default>
+      </BorderWidth>
+    </Style>
+  </PageHeader>
+  <BottomMargin>0.5cm</BottomMargin>
+  <rd:ReportID>68f3b7eb-d1e6-43c0-9ced-b9a256762124</rd:ReportID>
+  <EmbeddedImages>
+    <EmbeddedImage Name="giza">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <DataSets>
+    <DataSet Name="DataSet50_DataTable12">
+      <Fields>
+        <Field Name="StudentCode">
+          <DataField>StudentCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StudentName">
+          <DataField>StudentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CourseName">
+          <DataField>CourseName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SetNumber">
+          <DataField>SetNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ExamPlace">
+          <DataField>ExamPlace</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="board">
+          <DataField>board</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ExamDay">
+          <DataField>ExamDay</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ExamDate">
+          <DataField>ExamDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TimeFrom">
+          <DataField>TimeFrom</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ispassed">
+          <DataField>ispassed</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TimeTo">
+          <DataField>TimeTo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>db_connection</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>GetStudentExamDate_ByLevelId</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet2</rd:DataSetName>
+        <rd:TableName>DataTable1</rd:TableName>
+        <rd:TableAdapterName>DataTable1TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Code />
+  <Width>8.08333in</Width>
+  <Body>
+    <ReportItems>
+      <List Name="list1">
+        <Left>0.07937cm</Left>
+        <DataSetName>DataSet50_DataTable12</DataSetName>
+        <KeepTogether>true</KeepTogether>
+        <ReportItems>
+		
+
+		 
+          
+	 <!-- رئيس اللجنة (يمين) -->
+<Textbox Name="textbox10111">
+  <Top>3.9418cm</Top>
+  <Left>17.5cm</Left>
+  <Width>2.53968cm</Width>
+  <Style>
+    <BackgroundColor>WhiteSmoke</BackgroundColor>
+    <BorderStyle><Default>Solid</Default></BorderStyle>
+    <FontWeight>700</FontWeight>
+    <TextAlign>Center</TextAlign>
+    <PaddingLeft>2pt</PaddingLeft>
+    <PaddingRight>2pt</PaddingRight>
+    <PaddingTop>2pt</PaddingTop>
+    <PaddingBottom>2pt</PaddingBottom>
+  </Style>
+  <ZIndex>13</ZIndex>
+  <CanGrow>true</CanGrow>
+  <Height>0.63492cm</Height>
+  <Value>ملاحظ اللجنة</Value>
+</Textbox>
+
+<Textbox Name="dottedLine1">
+  <Top>4.6cm</Top>
+  <Left>17.5cm</Left>
+  <Width>2.53968cm</Width>
+  <Style>
+    <FontSize>10pt</FontSize>
+    <TextAlign>Center</TextAlign>
+    <BorderStyle><Default>None</Default></BorderStyle>
+  </Style>
+  <ZIndex>14</ZIndex>
+  <CanGrow>true</CanGrow>
+  <Height>0.4cm</Height>
+  <Value>....................</Value>
+</Textbox>
+
+<!-- ملاحظ اللجنة (وسط) -->
+<Textbox Name="textbox10">
+  <Top>3.9418cm</Top>
+  <Left>9.23cm</Left>
+  <Width>2.53968cm</Width>
+  <Style>
+    <BackgroundColor>WhiteSmoke</BackgroundColor>
+    <BorderStyle><Default>Solid</Default></BorderStyle>
+    <FontWeight>700</FontWeight>
+    <TextAlign>Center</TextAlign>
+    <PaddingLeft>2pt</PaddingLeft>
+    <PaddingRight>2pt</PaddingRight>
+    <PaddingTop>2pt</PaddingTop>
+    <PaddingBottom>2pt</PaddingBottom>
+  </Style>
+  <ZIndex>13</ZIndex>
+  <CanGrow>true</CanGrow>
+  <Height>0.63492cm</Height>
+  <Value>رئيس اللجنة</Value>
+</Textbox>
+
+<Textbox Name="dottedLine2">
+  <Top>4.6cm</Top>
+  <Left>9.23cm</Left>
+  <Width>2.53968cm</Width>
+  <Style>
+    <FontSize>10pt</FontSize>
+    <TextAlign>Center</TextAlign>
+    <BorderStyle><Default>None</Default></BorderStyle>
+  </Style>
+  <ZIndex>14</ZIndex>
+  <CanGrow>true</CanGrow>
+  <Height>0.4cm</Height>
+  <Value>....................</Value>
+</Textbox>
+
+<!-- رئيس الكنترول (يسار) -->
+<Textbox Name="textbox33">
+  <Top>3.9418cm</Top>
+  <Left>1cm</Left>
+  <Width>2.53968cm</Width>
+  <Style>
+    <BackgroundColor>WhiteSmoke</BackgroundColor>
+    <BorderStyle><Default>Solid</Default></BorderStyle>
+    <FontWeight>700</FontWeight>
+    <TextAlign>Center</TextAlign>
+    <PaddingLeft>2pt</PaddingLeft>
+    <PaddingRight>2pt</PaddingRight>
+    <PaddingTop>2pt</PaddingTop>
+    <PaddingBottom>2pt</PaddingBottom>
+  </Style>
+  <ZIndex>14</ZIndex>
+  <CanGrow>true</CanGrow>
+  <Height>0.63492cm</Height>
+  <Value>رئيس الكنترول</Value>
+</Textbox>
+
+<Textbox Name="dottedLine3">
+  <Top>4.6cm</Top>
+  <Left>1cm</Left>
+  <Width>2.53968cm</Width>
+  <Style>
+    <FontSize>10pt</FontSize>
+    <TextAlign>Center</TextAlign>
+    <BorderStyle><Default>None</Default></BorderStyle>
+  </Style>
+  <ZIndex>14</ZIndex>
+  <CanGrow>true</CanGrow>
+  <Height>0.4cm</Height>
+  <Value>....................</Value>
+</Textbox>
+
+
+          <Textbox Name="textbox38">
+            <Top>3.14815cm</Top>
+            <Width>4.6693cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>12</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>13.01587cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>=Format(Fields!ExamDate.Value,"dd-MM-yyyy")</Value>
+          </Textbox>
+          <Textbox Name="textbox39">
+            <Top>3.14815cm</Top>
+            <Width>2.53968cm</Width>
+            <Style>
+              <BackgroundColor>WhiteSmoke</BackgroundColor>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Right</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>11</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>17.68518cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>=Fields!ExamDay.Value</Value>
+          </Textbox>
+          <Textbox Name="textbox30">
+            <Top>3.01587cm</Top>
+            <Width>4.6693cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <TextAlign>Right</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>10</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.42328cm</Left>
+            <Height>0.63492cm</Height>
+            <Value />
+          </Textbox>
+          <Textbox Name="textbox31">
+            <Top>3.01587cm</Top>
+            <Width>2.53968cm</Width>
+            <Style>
+              <BackgroundColor>WhiteSmoke</BackgroundColor>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>9</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>5.09259cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>عدد الغائبون</Value>
+          </Textbox>
+          <Textbox Name="textbox26">
+            <Top>2.38095cm</Top>
+            <Width>4.6693cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <TextAlign>Right</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>8</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.42328cm</Left>
+            <Height>0.63492cm</Height>
+            <Value />
+          </Textbox>
+          <Textbox Name="textbox27">
+            <Top>2.38095cm</Top>
+            <Width>2.53968cm</Width>
+            <Style>
+              <BackgroundColor>WhiteSmoke</BackgroundColor>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>7</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>5.09259cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>عدد الحضور</Value>
+          </Textbox>
+          <Textbox Name="textbox28">
+            <Top>1.74603cm</Top>
+            <Width>4.6693cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>6</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.42328cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>=Count(Fields!StudentName.Value)</Value>
+          </Textbox>
+          <Textbox Name="textbox29">
+            <Top>1.74603cm</Top>
+            <Width>2.53968cm</Width>
+            <Style>
+              <BackgroundColor>WhiteSmoke</BackgroundColor>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>5</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>5.09259cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>عدد الطلاب</Value>
+          </Textbox>
+          <Textbox Name="textbox9">
+            <Top>2.35449cm</Top>
+            <Width>4.6693cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <Direction>RTL</Direction>
+            </Style>
+            <ZIndex>4</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>8.06878cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>=Fields!board.Value</Value>
+          </Textbox>
+          <Textbox Name="textbox19">
+            <Top>2.35449cm</Top>
+            <Width>1.86508cm</Width>
+            <Style>
+              <BackgroundColor>WhiteSmoke</BackgroundColor>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>3</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>12.73809cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>اللجنة</Value>
+          </Textbox>
+          <Textbox Name="textbox4">
+            <Top>1.71957cm</Top>
+            <Width>4.6693cm</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <Direction>RTL</Direction>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>8.06878cm</Left>
+            <Height>0.63492cm</Height>
+            <Value>=Fields!ExamPlace.Value</Value>
+          </Textbox>
+         
+          <Table Name="table1">
+            <DataSetName>DataSet50_DataTable12</DataSetName>
+            <Top>0.2381cm</Top>
+            <TableGroups>
+              <TableGroup>
+                <Grouping Name="table1_Group1">
+                  <GroupExpressions>
+                    <GroupExpression>=Fields!StudentCode.Value</GroupExpression>
+                  </GroupExpressions>
+                </Grouping>
+              </TableGroup>
+            </TableGroups>
+            <Width>19.99999cm</Width>
+            <Details>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox14">
+                          <rd:DefaultName>textbox14</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!ispassed.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox15">
+                          <rd:DefaultName>textbox15</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!ispassed.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox7">
+                          <rd:DefaultName>textbox7</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <FontSize>9pt</FontSize>
+                            <TextAlign>Left</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!ispassed.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox18">
+                          <rd:DefaultName>textbox18</rd:DefaultName>
+                          <Style>
+                            <BorderColor>
+                              <Right>Black</Right>
+                            </BorderColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                              <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Right>0.5pt</Right>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!StudentCode.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox16">
+                          <rd:DefaultName>textbox16</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Right>0.5pt</Right>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <TextAlign>Left</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <Direction>RTL</Direction>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!StudentName.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox21">
+                          <rd:DefaultName>textbox21</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Right>0.5pt</Right>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!SetNumber.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.63492cm</Height>
+                </TableRow>
+              </TableRows>
+            </Details>
+            <Style>
+              <FontSize>8pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <Direction>RTL</Direction>
+            </Style>
+            <Header>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox11">
+                          <rd:DefaultName>textbox11</rd:DefaultName>
+                          <Style>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
+                            <BorderColor>
+                              <Bottom>Black</Bottom>
+                            </BorderColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                              <Bottom>Solid</Bottom>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <FontSize>12pt</FontSize>
+                            <FontWeight>700</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>ملاحظات</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox12">
+                          <rd:DefaultName>textbox12</rd:DefaultName>
+                          <Style>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
+                            <BorderColor>
+                              <Bottom>Black</Bottom>
+                            </BorderColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                              <Bottom>Solid</Bottom>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <FontSize>12pt</FontSize>
+                            <FontWeight>700</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>انصراف</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox13">
+                          <Style>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
+                            <BorderColor>
+                              <Bottom>Black</Bottom>
+                            </BorderColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                              <Bottom>Solid</Bottom>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <FontSize>12pt</FontSize>
+                            <FontWeight>700</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>حضور</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox17">
+                          <rd:DefaultName>textbox17</rd:DefaultName>
+                          <Style>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
+                            <BorderColor>
+                              <Right>Black</Right>
+                              <Bottom>Black</Bottom>
+                            </BorderColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                              <Right>Solid</Right>
+                              <Bottom>Solid</Bottom>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Right>0.5pt</Right>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <FontSize>12pt</FontSize>
+                            <FontWeight>700</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>كود الطالب</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox20">
+                          <Style>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Right>0.5pt</Right>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <FontSize>12pt</FontSize>
+                            <FontWeight>700</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>اسم الطالب</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox22">
+                          <Style>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <BorderWidth>
+                              <Right>0.5pt</Right>
+                              <Bottom>1pt</Bottom>
+                            </BorderWidth>
+                            <FontSize>10pt</FontSize>
+                            <FontWeight>700</FontWeight>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>مسلسل_رقم الجلوس</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.63492cm</Height>
+                </TableRow>
+              </TableRows>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+            </Header>
+            <TableColumns>
+              <TableColumn>
+                <Width>2.53968cm</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>3.80952cm</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>3.80952cm</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>2.22222cm</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>6.03175cm</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>1.5873cm</Width>
+              </TableColumn>
+            </TableColumns>
+            <Height>1.26984cm</Height>
+            <Left>0.13227cm</Left>
+          </Table>
+        </ReportItems>
+        <Grouping Name="list1_Details_Group">
+          <GroupExpressions>
+            <GroupExpression>=Fields!CourseName.Value</GroupExpression>
+            <GroupExpression>=Fields!board.Value</GroupExpression>
+          </GroupExpressions>
+          <PageBreakAtStart>true</PageBreakAtStart>
+          <PageBreakAtEnd>true</PageBreakAtEnd>
+        </Grouping>
+        <PageBreakAtStart>true</PageBreakAtStart>
+      </List>
+    </ReportItems>
+    <Height>2.125in</Height>
+    <Style>
+      <BorderWidth>
+        <Default>2pt</Default>
+      </BorderWidth>
+    </Style>
+  </Body>
+  <Language>ar-EG</Language>
+  <PageFooter>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <Height>0.125in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <TopMargin>0.5cm</TopMargin>
+</Report>

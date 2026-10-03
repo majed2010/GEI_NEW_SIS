@@ -1,0 +1,294 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/layout.master" AutoEventWireup="true" CodeFile="StudentsSurveyResult.aspx.cs" Inherits="StudentsSurveyResult" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="BodyContent" runat="Server">
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+
+        <ContentTemplate>
+
+            <asp:MultiView ID="MultiView_SurveyResult" runat="server" ActiveViewIndex="0">
+
+                <asp:View ID="View_CourseList" runat="server">
+
+                    <table class="form" width="100%">
+                        <tr>
+                            <td class="input">
+                                <asp:DropDownList ID="ddlCourses" runat="server" Width="200px"  AppendDataBoundItems="true"
+                                
+                                DataSourceID="ObjectDataSource2" DataTextField="ArCourseName" DataValueField="CourseId" AutoPostBack="True" OnSelectedIndexChanged="ddlCourses_SelectedIndexChanged">
+                                <asp:ListItem Selected="True" Enabled="true" Text="---اختر---" Value="0"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="TeiLib.CoursesDAL"></asp:ObjectDataSource>
+                            </td>
+                        </tr>
+                    </table>
+
+                </asp:View>
+
+                <asp:View ID="View_Result" runat="server">
+
+                    <table class="form" width="100%">
+
+                        <tr>
+                            <td colspan="8">
+                                <asp:GridView ID="GridView_FacultyMembersItems" runat="server"
+                                    AutoGenerateColumns="False"
+                                    DataSourceID="ObjectDataSource1" Width="730px" OnRowDataBound="GridView_FacultyMembersItems_RowDataBound" ShowFooter="True">
+                                    <HeaderStyle CssClass="HeaderStyle" HorizontalAlign="center" Font-Size="12px" />
+                                    <RowStyle CssClass="RowStyle" HorizontalAlign="center" />
+                                    <AlternatingRowStyle CssClass="AltRowStyle" HorizontalAlign="center" />
+                                    <PagerStyle CssClass="PagerStyle" />
+                                    <FooterStyle Height="30px" HorizontalAlign="center" VerticalAlign="Middle" />
+                                    <Columns>
+
+                                        <asp:TemplateField HeaderText="أعضاء هيئة التدريس" ItemStyle-Width="400px">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblItemText" runat="server" Text='<%# Eval("SurveyItemText") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Right" Width="400px" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="ممتاز">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblExcellent" runat="server" Text='<%# Eval("Excellent") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="جيد جدا">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblVeryGood" runat="server" Text='<%# Eval("VeryGood") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="جيد">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGood" runat="server" Text='<%# Eval("Good") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="مقبول">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAcceptable" runat="server" Text='<%# Eval("Acceptable") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="ضعيف">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblWeak" runat="server" Text='<%# Eval("Weak") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="CalculateSurveyItems" TypeName="TeiLib.StudentsSurveyDAL">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="ddlCourses" Name="CourseId" PropertyName="SelectedValue" Type="Int32" />
+                                        <asp:Parameter DefaultValue="32" Name="SemesterId" Type="Int32" />
+                                        <asp:Parameter DefaultValue="1" Name="SurveyItemType" Type="Int32" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+
+                            </td>
+
+                        </tr>
+                        
+                        <tr>
+                            <td class="label" colspan="1">
+                                <asp:Label ID="Label1" runat="server" Text="متوسط تقييم المحاضر" Visible="true"></asp:Label>
+                            </td>
+                            <td class="label">
+                                <asp:Label ID="lblMemberAVG" runat="server" Text="" Visible="true"></asp:Label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label" colspan="1">
+                                <asp:Label ID="Label2" runat="server" Text="تقدير تقدير المحاضر" Visible="true"></asp:Label>
+                            </td>
+                            <td class="label">
+                                <asp:Label ID="lblMemberGradeName" runat="server" Text="" Visible="true"></asp:Label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="8">
+                                <asp:GridView ID="GridView_FacultyInstructorsItems" runat="server"
+                                    AutoGenerateColumns="False"
+                                    DataSourceID="ObjectDataSource3" Width="730px" OnRowDataBound="GridView_FacultyInstructorsItems_RowDataBound" ShowFooter="True">
+                                    <HeaderStyle CssClass="HeaderStyle" HorizontalAlign="center" Font-Size="12px" />
+                                    <RowStyle CssClass="RowStyle" HorizontalAlign="center" />
+                                    <AlternatingRowStyle CssClass="AltRowStyle" HorizontalAlign="center" />
+                                    <PagerStyle CssClass="PagerStyle" />
+                                    <FooterStyle Height="30px" HorizontalAlign="center" VerticalAlign="Middle" />
+                                    <Columns>
+
+                                        <asp:TemplateField HeaderText="الهيئة المعاونة لأعضاء هيئة التدريس" ItemStyle-Width="400px">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblItemText" runat="server" Text='<%# Eval("SurveyItemText") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Right" Width="400px" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="ممتاز">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblExcellent" runat="server" Text='<%# Eval("Excellent") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="جيد جدا">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblVeryGood" runat="server" Text='<%# Eval("VeryGood") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="جيد">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGood" runat="server" Text='<%# Eval("Good") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="مقبول">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAcceptable" runat="server" Text='<%# Eval("Acceptable") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="ضعيف">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblWeak" runat="server" Text='<%# Eval("Weak") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="CalculateSurveyItems" TypeName="TeiLib.StudentsSurveyDAL">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="ddlCourses" Name="CourseId" PropertyName="SelectedValue" Type="Int32" />
+                                        <asp:Parameter DefaultValue="32" Name="SemesterId" Type="Int32" />
+                                        <asp:Parameter DefaultValue="2" Name="SurveyItemType" Type="Int32" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="label" colspan="1">
+                                <asp:Label ID="Label3" runat="server" Text="متوسط تقييم المعيد" Visible="true"></asp:Label>
+                            </td>
+                            <td class="label">
+                                <asp:Label ID="lblInstructorAVG" runat="server" Text="" Visible="true"></asp:Label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label" colspan="1">
+                                <asp:Label ID="Label4" runat="server" Text="تقدير تقدير المعيد" Visible="true"></asp:Label>
+                            </td>
+                            <td class="label">
+                                <asp:Label ID="lblInstructorGrade" runat="server" Text="" Visible="true"></asp:Label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="8">
+                                <asp:GridView ID="GridView_SubjectItems" runat="server"
+                                    AutoGenerateColumns="False"
+                                    DataSourceID="ObjectDataSource4" Width="730px" OnRowDataBound="GridView_SubjectItems_RowDataBound" ShowFooter="True">
+                                    <HeaderStyle CssClass="HeaderStyle" HorizontalAlign="center" Font-Size="12px" />
+                                    <RowStyle CssClass="RowStyle" HorizontalAlign="center" />
+                                    <AlternatingRowStyle CssClass="AltRowStyle" HorizontalAlign="center" />
+                                    <PagerStyle CssClass="PagerStyle" />
+                                    <FooterStyle Height="30px" HorizontalAlign="center" VerticalAlign="Middle" />
+                                    <Columns>
+
+                                        <asp:TemplateField HeaderText="المقرر الدراسى" ItemStyle-Width="400px">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblItemText" runat="server" Text='<%# Eval("SurveyItemText") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Right" Width="400px" />
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="ممتاز">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblExcellent" runat="server" Text='<%# Eval("Excellent") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="جيد جدا">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblVeryGood" runat="server" Text='<%# Eval("VeryGood") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="جيد">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblGood" runat="server" Text='<%# Eval("Good") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="مقبول">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAcceptable" runat="server" Text='<%# Eval("Acceptable") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="ضعيف">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblWeak" runat="server" Text='<%# Eval("Weak") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:ObjectDataSource ID="ObjectDataSource4" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="CalculateSurveyItems" TypeName="TeiLib.StudentsSurveyDAL">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="ddlCourses" Name="CourseId" PropertyName="SelectedValue" Type="Int32" />
+                                        <asp:Parameter DefaultValue="32" Name="SemesterId" Type="Int32" />
+                                        <asp:Parameter DefaultValue="3" Name="SurveyItemType" Type="Int32" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="label" colspan="1">
+                                <asp:Label ID="Label5" runat="server" Text="متوسط تقييم المقرر" Visible="true"></asp:Label>
+                            </td>
+                            <td class="label">
+                                <asp:Label ID="lblCourseAVG" runat="server" Text="" Visible="true"></asp:Label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label" colspan="1">
+                                <asp:Label ID="Label6" runat="server" Text="تقدير تقدير المقرر" Visible="true"></asp:Label>
+                            </td>
+                            <td class="label">
+                                <asp:Label ID="lblCourseGrade" runat="server" Text="" Visible="true"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                        <td align="center" class="button" colspan="2">
+                        <asp:Button ID="btnDone" runat="server" Text="تم" onclick="btnDone_Click" />
+                        
+                        </td>
+                        </tr>
+                    </table>
+
+                </asp:View>
+                <asp:View ID="NoAccess" runat="server">
+                <asp:Label ID="lblNoAccess" runat="server" Text="لا يمكنك الدخول للصفحة"  CssClass="label" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                </asp:View>
+            </asp:MultiView>
+
+        </ContentTemplate>
+
+    </asp:UpdatePanel>
+
+</asp:Content>
+

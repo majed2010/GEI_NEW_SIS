@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.angular/
+bin/
+obj/
+.tools/
+.reference/
+database/backups/
+*.log
+appsettings.Local.json
+App_Data/
+.vs/
